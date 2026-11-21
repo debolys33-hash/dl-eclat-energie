@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DL Éclat et Énergie — Technicienne de Cils, Brow Lifting & Magnétisme</title>
+    <!-- Chargement de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chargement des polices Google Fonts (Cormorant Garamond et Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Chargement des icônes Phosphor -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Configuration personnalisée Tailwind pour la palette DL Éclat et Énergie -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blanc-creme': '#FDFBFA',
+                        'beige-nude': '#F5ECE6',
+                        'rose-poudre': '#EEDAD4',
+                        'dore-champagne': '#C5A075',
+                        'dore-hover': '#B08B60',
+                        'charbon-profond': '#2B2624',
+                        'taupe-doux': '#6D6561',
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(43, 38, 36, 0.06)',
+                        'card': '0 4px 20px -2px rgba(197, 160, 117, 0.14)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(180deg, #EFE3DA 0%, #E7D6CA 55%, #DFCBB9 100%) !important;
+        }
+
+        #navbar {
+            background-color: rgba(239, 227, 218, 0.92) !important;
+            border-bottom-color: rgba(197, 160, 117, 0.35) !important;
+        }
+
+        #prestations {
+            background-color: rgba(216, 194, 177, 0.45) !important;
+            border-color: rgba(197, 160, 117, 0.3) !important;
+        }
+    </style>
+</head>
+<body class="bg-blanc-creme text-charbon-profond font-sans antialiased selection:bg-rose-poudre selection:text-charbon-profond">
+
+    <!-- ==========================================
+         1. BARRE DE NAVIGATION & IDENTITÉ
+         ========================================== -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-blanc-creme/90 backdrop-blur-md border-b border-beige-nude">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Titre DL Éclat et Énergie -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <span class="w-9 h-9 rounded-full bg-rose-poudre/70 flex items-center justify-center text-dore-champagne group-hover:scale-105 transition-transform border border-dore-champagne/30">
+                        <span class="font-serif font-bold text-sm tracking-tighter text-charbon-profond">DL</span>
+                    </span>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-2xl font-semibold tracking-wide text-charbon-profond leading-none">DL Éclat et Énergie</span>
+                        <span class="text-[10px] uppercase tracking-[0.22em] text-dore-champagne mt-1 font-medium">Technicienne de Cils, Brow Lifting & Magnétisme</span>
+                    </div>
+                </a>
+
+                <!-- Menu Desktop -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-taupe-doux">
+                    <a href="#prestations" class="hover:text-charbon-profond transition-colors">Prestations</a>
+                    <a href="#galerie" class="hover:text-charbon-profond transition-colors">Galerie</a>
+                    <a href="#conseils" class="hover:text-charbon-profond transition-colors">Conseils & Entretien</a>
+                    <a href="#contact" class="hover:text-charbon-profond transition-colors">Contact</a>
+                </nav>
+
+                <!-- Bouton Prendre Rendez-vous Desktop -->
+                <div class="hidden md:flex items-center">
+                    <button type="button" onclick="openBookingModal()" class="bg-dore-champagne hover:bg-dore-hover text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-sm hover:shadow flex items-center gap-2">
+                        <i class="ph ph-calendar-blank text-base"></i>
+                        Prendre Rendez-vous
+                    </button>
+                </div>
+
+                <!-- Bouton Menu Mobile -->
+                <div class="md:hidden flex items-center">
+                    <button type="button" id="mobile-menu-btn" class="p-2 rounded-xl text-charbon-profond hover:bg-beige-nude transition-colors" aria-label="Ouvrir le menu">
+                        <i class="ph ph-list text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Déroulant -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blanc-creme border-b border-beige-nude px-4 pt-2 pb-6 space-y-3 shadow-lg">
+            <a href="#prestations" class="mobile-link block px-3 py-2.5 rounded-xl text-base font-medium text-charbon-profond hover:bg-beige-nude">Prestations</a>
+            <a href="#galerie" class="mobile-link block px-3 py-2.5 rounded-xl text-base font-medium text-charbon-profond hover:bg-beige-nude">Galerie</a>
+            <a href="#conseils" class="mobile-link block px-3 py-2.5 rounded-xl text-base font-medium text-charbon-profond hover:bg-beige-nude">Conseils & Entretien</a>
+            <a href="#contact" class="mobile-link block px-3 py-2.5 rounded-xl text-base font-medium text-charbon-profond hover:bg-beige-nude">Contact</a>
+            <div class="pt-2">
+                <button type="button" onclick="openBookingModal()" class="w-full bg-dore-champagne text-white px-5 py-3 rounded-full text-center font-medium shadow-sm flex items-center justify-center gap-2">
+                    <i class="ph ph-calendar-blank text-lg"></i>
+                    Prendre Rendez-vous
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         2. SECTION HÉRO
+         ========================================== -->
+    <section class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+        <!-- Lueur décorative douce -->
+        <div class="absolute top-20 right-0 -mr-24 w-96 h-96 rounded-full bg-rose-poudre/35 blur-3xl -z-10"></div>
+        <div class="absolute bottom-0 left-0 -ml-24 w-80 h-80 rounded-full bg-beige-nude/90 blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Texte Héro -->
+                <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-beige-nude border border-rose-poudre/70 text-xs font-medium uppercase tracking-widest text-charbon-profond">
+                        <i class="ph-fill ph-sparkle text-dore-champagne"></i>
+                        Extension de cils - Browlift & Magnétisme
+                    </div>
+                    
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-charbon-profond leading-[1.12]">
+                        Sublimez votre <span class="italic font-normal text-dore-champagne">éclat</span> harmonisez votre <span class="italic font-normal text-dore-champagne">énergie.</span>
+                    </h1>
+                    
+                    <div class="space-y-4 text-taupe-doux leading-relaxed">
+                        <p class="font-serif italic text-lg text-charbon-profond">
+                            L’Éclat de votre beauté, l’Énergie de votre bien-être.
+                            À travers les extensions de cils et le Brow Lift, je souhaite mettre en valeur votre regard et révéler votre éclat.
+                            Le magnétisme vous invite à prendre soin de vous, à retrouver sérénité, équilibre bien-être intérieur.
+                            Parce que la beauté extérieure et le bien-être intérieur sont deux belles façons de prendre soin de soi.
+                        </p>
+                    </div>
+                    
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <button type="button" onclick="openBookingModal()" class="w-full sm:w-auto bg-charbon-profond hover:bg-charbon-profond/90 text-white px-8 py-4 rounded-full text-sm font-medium transition-all duration-300 shadow-soft flex items-center justify-center gap-2">
+                            <span>Prendre Rendez-vous</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                        <a href="#prestations" class="w-full sm:w-auto bg-white hover:bg-beige-nude text-charbon-profond border border-rose-poudre px-8 py-4 rounded-full text-sm font-medium transition-all duration-300 text-center">
+                            Découvrir les prestations
+                        </a>
+                    </div>
+
+                    <!-- Engagements clés -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-beige-nude text-center lg:text-left">
+                        <div>
+                            <p class="font-serif text-2xl font-semibold text-dore-champagne">Cils & Sourcils</p>
+                            <p class="text-xs text-taupe-doux mt-0.5">Expertise regard complète</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl font-semibold text-dore-champagne">Magnétisme</p>
+                            <p class="text-xs text-taupe-doux mt-0.5">Sérénité et bien-être intérieur</p>
+                        </div>
+                        <div>
+                            <p class="font-serif text-2xl font-semibold text-dore-champagne">Sur-Mesure</p>
+                            <p class="text-xs text-taupe-doux mt-0.5">Des soins adaptés à vos envies</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visuel Héro (Cadre Arche Élégant) -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-lg">
+                        <!-- Cadre décoratif décalé -->
+                        <div class="absolute inset-0 translate-x-4 translate-y-4 rounded-t-full rounded-b-3xl border border-dore-champagne/50 -z-10"></div>
+                        
+                        <!-- Image principale -->
+                        <div class="overflow-hidden rounded-t-full rounded-b-3xl bg-beige-nude shadow-soft aspect-[4/5] relative">
+                            <img 
+                                src="20261118_105703.jpg" 
+                                alt="Regard lumineux sublimé par extensions de cils, brow lifting et magnétisme chez DL Éclat et Énergie" 
+                                class="w-full h-full object-cover object-center"
+                              
+                            >
+                            <!-- Badge flottant -->
+                            <div class="absolute bottom-6 left-6 right-6 bg-blanc-creme/95 backdrop-blur-md p-4 rounded-2xl border border-rose-poudre/60 shadow-sm flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-rose-poudre/60 flex items-center justify-center text-charbon-profond shrink-0">
+                                    <i class="ph ph-sparkle text-2xl text-dore-champagne"></i>
+                                </div>
+                                <div>
+                                    <p class="font-serif text-lg font-semibold text-charbon-profond leading-tight">Extension de cils - Browlift & Magnétisme</p>
+                                    <p class="text-xs text-taupe-doux mt-0.5">Des prestations dédiées à votre beauté et à votre bien-être</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         3. PRESTATIONS & TARIFS (CILS, BROW LIFTING & MAGNÉTISME)
+         ========================================== -->
+    <section id="prestations" class="py-20 bg-beige-nude/50 border-y border-beige-nude">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- En-tête de section -->
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-dore-champagne">La Carte des Soins</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charbon-profond mt-2">
+                    Prestations & Tarifs
+                </h2>
+                <p class="text-taupe-doux text-sm sm:text-base mt-4 font-light">
+                    L’alliance de l’expertise du regard — extensions de cils et brow lifting — et du magnétisme, pour révéler votre beauté extérieure tout en cultivant votre bien-être intérieur.
+                </p>
+            </div>
+
+            <!-- Onglets de filtrage des catégories de soins -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12" id="service-tabs">
+                <button type="button" onclick="filterServices('all')" class="service-tab-btn active px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium bg-charbon-profond text-white shadow-sm transition-all">
+                    Toutes les prestations
+                </button>
+                <button type="button" onclick="filterServices('cils')" class="service-tab-btn px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium bg-white text-taupe-doux hover:text-charbon-profond border border-rose-poudre/60 transition-all">
+                    Beauté des Cils
+                </button>
+                <button type="button" onclick="filterServices('sourcils')" class="service-tab-btn px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium bg-white text-taupe-doux hover:text-charbon-profond border border-rose-poudre/60 transition-all">
+                    Sourcils & Brow Lifting
+                </button>
+                <button type="button" onclick="filterServices('magnetisme')" class="service-tab-btn px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium bg-white text-taupe-doux hover:text-charbon-profond border border-rose-poudre/60 transition-all">
+                    Magnétisme
+                </button>
+            </div>
+
+            <!-- Grille des prestations -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+                
+                <!-- CILS 1 : Pose Cil à Cil -->
+                <div class="service-card bg-blanc-creme rounded-3xl p-8 border border-rose-poudre/50 shadow-card hover:border-dore-champagne/70 transition-all duration-300 flex flex-col justify-between group" data-service-cat="cils">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 rounded-full bg-beige-nude text-xs font-medium text-charbon-profond">Cils • Effet Naturel</span>
+                            <span class="font-serif text-2xl font-semibold text-dore-champagne">50 €</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-semibold text-charbon-profond group-hover:text-dore-champagne transition-colors">
+                            Pose Cil à Cil
+                        </h3>
+                        <div class="flex items-center gap-2 text-xs text-taupe-doux mt-2 mb-4">
+                            <i class="ph ph-clock text-dore-champagne text-sm"></i>
+                            <span>Durée : 2h00 à 2h30</span>
+                        </div>
+                        <p class="text-sm text-taupe-doux leading-relaxed font-light">
+                            Application délicate d'une extension en soie sur chaque cil naturel isolé. Idéal pour allonger et courber le regard avec un effet mascara subtil au quotidien.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-beige-nude">
+                        <button type="button" onclick="openBookingModal('Pose Cil à Cil (50€)')" class="w-full py-2.5 rounded-full border border-charbon-profond/20 hover:bg-charbon-profond hover:text-white text-charbon-profond text-xs font-medium transition-colors flex items-center justify-center gap-1.5">
+                            <span>Réserver</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CILS 2 : Pose Mixte -->
+                <div class="service-card bg-blanc-creme rounded-3xl p-8 border-2 border-dore-champagne/60 shadow-soft relative flex flex-col justify-between group" data-service-cat="cils">
+                    <div class="absolute -top-3.5 right-8 bg-dore-champagne text-white text-[10px] uppercase tracking-widest font-semibold px-3.5 py-1 rounded-full shadow-sm">
+                        Best-seller Cils
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 rounded-full bg-rose-poudre/60 text-xs font-medium text-charbon-profond">Cils • Équilibre</span>
+                            <span class="font-serif text-2xl font-semibold text-dore-champagne">60 €</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-semibold text-charbon-profond group-hover:text-dore-champagne transition-colors">
+                            Pose Mixte (Hybride)
+                        </h3>
+                        <div class="flex items-center gap-2 text-xs text-taupe-doux mt-2 mb-4">
+                            <i class="ph ph-clock text-dore-champagne text-sm"></i>
+                            <span>Durée : 2h00 à 2h15</span>
+                        </div>
+                        <p class="text-sm text-taupe-doux leading-relaxed font-light">
+                            Alliance harmonieuse du Cil à Cil et de bouquets légers faits main. Apporte volume vaporeux, texture et profondeur tout en conservant une grande douceur.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-beige-nude">
+                        <button type="button" onclick="openBookingModal('Pose Mixte (60€)')" class="w-full py-2.5 rounded-full bg-dore-champagne hover:bg-dore-hover text-white text-xs font-medium transition-colors shadow-sm flex items-center justify-center gap-1.5">
+                            <span>Réserver</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CILS 3 : Volume Russe -->
+                <div class="service-card bg-blanc-creme rounded-3xl p-8 border border-rose-poudre/50 shadow-card hover:border-dore-champagne/70 transition-all duration-300 flex flex-col justify-between group" data-service-cat="cils">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 rounded-full bg-beige-nude text-xs font-medium text-charbon-profond">Cils • Regard Velours</span>
+                            <span class="font-serif text-2xl font-semibold text-dore-champagne">65 €</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-semibold text-charbon-profond group-hover:text-dore-champagne transition-colors">
+                            Volume Russe
+                        </h3>
+                        <div class="flex items-center gap-2 text-xs text-taupe-doux mt-2 mb-4">
+                            <i class="ph ph-clock text-dore-champagne text-sm"></i>
+                            <span>Durée : 2h15 à 2h30</span>
+                        </div>
+                        <p class="text-sm text-taupe-doux leading-relaxed font-light">
+                            Façonnage d'éventails ultra-fins (3D à 6D) posés sur chaque cil naturel. Offre une frange de cils dense, glamour et soyeuse sans alourdir la paupière.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-beige-nude">
+                        <button type="button" onclick="openBookingModal('Volume Russe (65€)')" class="w-full py-2.5 rounded-full border border-charbon-profond/20 hover:bg-charbon-profond hover:text-white text-charbon-profond text-xs font-medium transition-colors flex items-center justify-center gap-1.5">
+                            <span>Réserver</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CILS 4 : Remplissage -->
+                <div class="service-card bg-blanc-creme border border-rose-poudre/70 rounded-3xl p-6 sm:p-7 shadow-card flex flex-col justify-between" data-service-cat="cils">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <h3 class="font-serif text-2xl text-charbon-profond">Remplissage Extensions</h3>
+                            <span class="text-xs uppercase tracking-wider text-dore-hover font-medium whitespace-nowrap">Entretien</span>
+                        </div>
+
+                        <p class="text-taupe-doux text-sm leading-relaxed mb-6 font-light">
+                            Entretien régulier de votre pose pour conserver une frange fournie et soignée.
+                        </p>
+
+                        <div class="space-y-4">
+                            <!-- 2 semaines -->
+                            <div class="bg-beige-nude/50 rounded-xl p-3.5 border border-rose-poudre/40">
+                                <p class="font-serif text-lg text-charbon-profond mb-2">À 2 semaines</p>
+                                <ul class="space-y-1.5 text-sm">
+                                    <li class="flex items-center justify-between">
+                                        <span class="text-taupe-doux">Cil à Cil</span>
+                                        <span class="font-semibold text-charbon-profond">25 €</span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span class="text-taupe-doux">Hybride</span>
+                                        <span class="font-semibold text-charbon-profond">30 €</span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span class="text-taupe-doux">Volume Russe</span>
+                                        <span class="font-semibold text-charbon-profond">35 €</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- 3 semaines -->
+                            <div class="bg-beige-nude/50 rounded-xl p-3.5 border border-rose-poudre/40">
+                                <p class="font-serif text-lg text-charbon-profond mb-2">À 3 semaines</p>
+                                <ul class="space-y-1.5 text-sm">
+                                    <li class="flex items-center justify-between">
+                                        <span class="text-taupe-doux">Cil à Cil</span>
+                                        <span class="font-semibold text-charbon-profond">30 €</span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span class="text-taupe-doux">Hybride</span>
+                                        <span class="font-semibold text-charbon-profond">35 €</span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span class="text-taupe-doux">Volume Russe</span>
+                                        <span class="font-semibold text-charbon-profond">45 €</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- 4 semaines -->
+                            <div class="bg-beige-nude/50 rounded-xl p-3.5 border border-rose-poudre/40">
+                                <p class="font-serif text-lg text-charbon-profond mb-2">À 4 semaines</p>
+                                <ul class="space-y-1.5 text-sm">
+                                    <li class="flex items-center justify-between">
+                                        <span class="text-taupe-doux">Cil à Cil</span>
+                                        <span class="font-semibold text-charbon-profond">40 €</span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span class="text-taupe-doux">Hybride</span>
+                                        <span class="font-semibold text-charbon-profond">45 €</span>
+                                    </li>
+                                    <li class="flex items-center justify-between">
+                                        <span class="text-taupe-doux">Volume Russe</span>
+                                        <span class="font-semibold text-charbon-profond">55 €</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CILS 5 : Dépose -->
+                <div class="service-card bg-blanc-creme rounded-3xl p-8 border border-rose-poudre/50 shadow-card hover:border-dore-champagne/70 transition-all duration-300 flex flex-col justify-between group" data-service-cat="cils">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 rounded-full bg-beige-nude text-xs font-medium text-charbon-profond">Cils • Soin Douceur</span>
+                            <span class="font-serif text-2xl font-semibold text-dore-champagne">20 €</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-semibold text-charbon-profond group-hover:text-dore-champagne transition-colors">
+                            Dépose Délicate
+                        </h3>
+                        <div class="flex items-center gap-2 text-xs text-taupe-doux mt-2 mb-4">
+                            <i class="ph ph-clock text-dore-champagne text-sm"></i>
+                            <span>Durée : 30 min</span>
+                        </div>
+                        <p class="text-sm text-taupe-doux leading-relaxed font-light">
+                            Retrait complet en douceur à l'aide d'un dissolvant crème spécifique sans tiraillement, suivi d'un bain purifiant et d'un sérum fortifiant à la kératine.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-beige-nude">
+                        <button type="button" onclick="openBookingModal('Dépose Délicate (20€)')" class="w-full py-2.5 rounded-full border border-charbon-profond/20 hover:bg-charbon-profond hover:text-white text-charbon-profond text-xs font-medium transition-colors flex items-center justify-center gap-1.5">
+                            <span>Réserver</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SOURCILS 1 : Brow Lift Naturel -->
+                <div class="service-card bg-blanc-creme rounded-3xl p-8 border border-rose-poudre/50 shadow-card hover:border-dore-champagne/70 transition-all duration-300 flex flex-col justify-between group" data-service-cat="sourcils">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 rounded-full bg-rose-poudre/50 text-xs font-medium text-charbon-profond">Sourcils • Kératine</span>
+                            <span class="font-serif text-2xl font-semibold text-dore-champagne">50 €</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-semibold text-charbon-profond group-hover:text-dore-champagne transition-colors">
+                            Brow Lift Naturel
+                        </h3>
+                        <div class="flex items-center gap-2 text-xs text-taupe-doux mt-2 mb-4">
+                            <i class="ph ph-clock text-dore-champagne text-sm"></i>
+                            <span>Durée : 45 min</span>
+                        </div>
+                        <p class="text-sm text-taupe-doux leading-relaxed font-light">
+                            Discipline et rehausse les poils des sourcils vers le haut pour un effet fourni, structuré et lifté immédiat, accompagné d'un soin profond à la kératine. Tenue 6 semaines.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-beige-nude">
+                        <button type="button" onclick="openBookingModal('Brow Lift Naturel (50€)')" class="w-full py-2.5 rounded-full border border-charbon-profond/20 hover:bg-charbon-profond hover:text-white text-charbon-profond text-xs font-medium transition-colors flex items-center justify-center gap-1.5">
+                            <span>Réserver</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SOURCILS 2 : Brow Lift & Teinture -->
+                <div class="service-card bg-blanc-creme rounded-3xl p-8 border border-rose-poudre/50 shadow-card hover:border-dore-champagne/70 transition-all duration-300 flex flex-col justify-between group" data-service-cat="sourcils">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 rounded-full bg-rose-poudre/50 text-xs font-medium text-charbon-profond">Sourcils • Complet</span>
+                            <span class="font-serif text-2xl font-semibold text-dore-champagne">65 €</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-semibold text-charbon-profond group-hover:text-dore-champagne transition-colors">
+                            Brow Lift & Teinture
+                        </h3>
+                        <div class="flex items-center gap-2 text-xs text-taupe-doux mt-2 mb-4">
+                            <i class="ph ph-clock text-dore-champagne text-sm"></i>
+                            <span>Durée : 1h00</span>
+                        </div>
+                        <p class="text-sm text-taupe-doux leading-relaxed font-light">
+                            Protocole complet comprenant le Brow Lift à la kératine, le traçage sur-mesure (brow mapping), l'épilation douce à la pince et une teinture adaptée à votre carnation.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-beige-nude">
+                        <button type="button" onclick="openBookingModal('Brow Lift avec Teinture (65€)')" class="w-full py-2.5 rounded-full border border-charbon-profond/20 hover:bg-charbon-profond hover:text-white text-charbon-profond text-xs font-medium transition-colors flex items-center justify-center gap-1.5">
+                            <span>Réserver</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- MAGNÉTISME -->
+                <div class="service-card bg-blanc-creme rounded-3xl p-8 border-2 border-dore-champagne/60 shadow-soft relative flex flex-col justify-between group" data-service-cat="magnetisme">
+                    <div class="absolute -top-3.5 right-8 bg-dore-champagne text-white text-[10px] uppercase tracking-widest font-semibold px-3.5 py-1 rounded-full shadow-sm">
+                        Bien-être
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 rounded-full bg-rose-poudre/60 text-xs font-medium text-charbon-profond">Énergie • Sérénité</span>
+                            <span class="font-serif text-2xl font-semibold text-dore-champagne">20 €</span>
+                        </div>
+                        <h3 class="font-serif text-2xl font-semibold text-charbon-profond group-hover:text-dore-champagne transition-colors">
+                            Magnétisme
+                        </h3>
+                        <div class="flex items-center gap-2 text-xs text-taupe-doux mt-2 mb-4">
+                            <i class="ph ph-clock text-dore-champagne text-sm"></i>
+                            <span>Durée : 1h00 à 2h00</span>
+                        </div>
+                        <p class="text-sm text-taupe-doux leading-relaxed font-light">
+                            Séance énergétique douce pour apaiser les tensions, rééquilibrer les énergies et retrouver sérénité et bien-être intérieur.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-beige-nude">
+                        <button type="button" onclick="openBookingModal('Magnétisme (20€)')" class="w-full py-2.5 rounded-full bg-dore-champagne hover:bg-dore-hover text-white text-xs font-medium transition-colors shadow-sm flex items-center justify-center gap-1.5">
+                            <span>Réserver</span>
+                            <i class="ph ph-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="text-center text-xs text-taupe-doux mt-10 italic">
+                * Tarifs indicatifs TTC.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4. GALERIE & RÉALISATIONS FILTRABLE
+         ========================================== -->
+    <section id="galerie" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-dore-champagne">Portfolio</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charbon-profond mt-2">
+                        Galerie & Réalisations
+                    </h2>
+                </div>
+
+                <!-- Filtres : Tous, Extensions de Cils, Brow Lifting, Magnétisme -->
+                <div class="flex flex-wrap gap-2" id="gallery-filters">
+                    <button type="button" onclick="filterGallery('all')" class="filter-btn active px-5 py-2.5 rounded-full text-xs font-medium bg-charbon-profond text-white transition-all">
+                        Tous
+                    </button>
+                    <button type="button" onclick="filterGallery('extensions')" class="filter-btn px-5 py-2.5 rounded-full text-xs font-medium bg-white text-taupe-doux hover:text-charbon-profond border border-rose-poudre/60 transition-all">
+                        Extensions de Cils
+                    </button>
+                    <button type="button" onclick="filterGallery('browlift')" class="filter-btn px-5 py-2.5 rounded-full text-xs font-medium bg-white text-taupe-doux hover:text-charbon-profond border border-rose-poudre/60 transition-all">
+                        Brow Lifting
+                    </button>
+                    <button type="button" onclick="filterGallery('magnetisme')" class="filter-btn px-5 py-2.5 rounded-full text-xs font-medium bg-white text-taupe-doux hover:text-charbon-profond border border-rose-poudre/60 transition-all">
+                        Magnétisme
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grille Galerie -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+                
+                <!-- Item 1 : Extensions de Cils -->
+                <div class="gallery-item group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card" data-category="extensions">
+                    <img 
+                        src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80" 
+                        alt="Extensions de cils pose cil à cil naturelle" 
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.src='https://placehold.co/600x600/EEDAD4/2B2624?text=Extensions+Cil+%C3%A0+Cil'"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/85 via-charbon-profond/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Extensions de Cils</span>
+                        <h4 class="font-serif text-xl font-medium">Pose Cil à Cil</h4>
+                        <p class="text-xs text-white/85 mt-1">La pose cil à cil consiste à fixer une extension sur chaque cil naturel pour allonger et structurer le regard avec un effet mascara soigné et naturel.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 : Extensions de Cils (Hybride) -->
+                <div class="gallery-item group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card" data-category="extensions">
+                    <img 
+                        src="https://images.unsplash.com/photo-1588514912908-8f5891714f8d?auto=format&fit=crop&w=800&q=80" 
+                        alt="Pose Mixte et Hybride" 
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.src='https://placehold.co/600x600/C5A075/FFFFFF?text=Pose+Hybride'"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/85 via-charbon-profond/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Extensions de Cils</span>
+                        <h4 class="font-serif text-xl font-medium">Pose Hybride</h4>
+                        <p class="text-xs text-white/85 mt-1">Un mélange de cils à cils et de bouquets pour un regard structuré sans effet trop chargé.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 : Extensions de Cils (Volume Russe) -->
+                <div class="gallery-item group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card" data-category="extensions">
+                    <img 
+                        src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" 
+                        alt="Volume Russe" 
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.src='https://placehold.co/600x600/B68D5E/FFFFFF?text=Volume+Russe'"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/85 via-charbon-profond/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Extensions de Cils</span>
+                        <h4 class="font-serif text-xl font-medium">Volume Russe</h4>
+                        <p class="text-xs text-white/85 mt-1">Un regard intense grâce à la pose de bouquets légers sur chacun de vos cils naturels.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 : Brow Lifting + Teinture -->
+                <div class="gallery-item group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card" data-category="browlift">
+                    <img 
+                        src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=800&q=80" 
+                        alt="Brow Lifting Naturel" 
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.src='https://placehold.co/600x600/F5ECE6/2B2624?text=Brow+Lifting'"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/85 via-charbon-profond/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Brow Lifting</span>
+                        <h4 class="font-serif text-xl font-medium">Brow Lift + Teinture</h4>
+                        <p class="text-xs text-white/85 mt-1">Sourcils disciplinés vers le haut, ligne redessinée et soin kératine.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 : Brow Lifting Naturel -->
+                <div class="gallery-item group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card" data-category="browlift">
+                    <img 
+                        src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=800&q=80" 
+                        alt="Brow Lift naturel effet fluffy" 
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.src='https://placehold.co/600x600/F5ECE6/2B2624?text=Brow+Lift+Fluffy'"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/85 via-charbon-profond/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Brow Lifting</span>
+                        <h4 class="font-serif text-xl font-medium">Brow Lift Naturel — Effet Fluffy</h4>
+                        <p class="text-xs text-white/85 mt-1">Volume naturel et souplesse du poil sans effet figé.</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 : Magnétisme -->
+                <div class="gallery-item group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card" data-category="magnetisme">
+                    <img 
+                        src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" 
+                        alt="Séance de magnétisme et apaisement énergétique" 
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onerror="this.src='https://placehold.co/600x600/E7D6CA/2B2624?text=Magn%C3%A9tisme'"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/85 via-charbon-profond/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Magnétisme</span>
+                        <h4 class="font-serif text-xl font-medium">Séance Énergétique & Apaisement</h4>
+                        <p class="text-xs text-white/85 mt-1">Un temps calme pour relâcher les tensions, harmoniser l'énergie et retrouver sérénité intérieure.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         5. PRÉPARATION & ENTRETIEN (4 ONGLETS INTERACTIFS)
+         ========================================== -->
+    <section id="conseils" class="py-20 bg-beige-nude/50 border-y border-beige-nude">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-dore-champagne">Guide Beauté & Soins</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charbon-profond mt-2">
+                    Préparation & Entretien
+                </h2>
+                <p class="text-taupe-doux text-sm sm:text-base mt-3 font-light">
+                    Adoptez les bons rituels avant et après votre séance pour prolonger l'éclat de votre regard et les bienfaits de votre soin énergétique.
+                </p>
+            </div>
+
+            <!-- Contrôle des 4 Onglets Interactifs -->
+            <div class="flex justify-center mb-10">
+                <div class="inline-flex flex-wrap justify-center gap-1.5 p-1.5 rounded-3xl sm:rounded-full bg-white border border-rose-poudre/60 shadow-sm">
+                    <button type="button" id="tab-avant" onclick="switchCareTab('avant')" class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 bg-charbon-profond text-white shadow-sm">
+                        Avant le rendez-vous
+                    </button>
+                    <button type="button" id="tab-cils" onclick="switchCareTab('cils')" class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 text-taupe-doux hover:text-charbon-profond">
+                        Entretien des Cils
+                    </button>
+                    <button type="button" id="tab-brow" onclick="switchCareTab('brow')" class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 text-taupe-doux hover:text-charbon-profond">
+                        Entretien Brow Lifting
+                    </button>
+                    <button type="button" id="tab-magnetisme" onclick="switchCareTab('magnetisme')" class="px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 text-taupe-doux hover:text-charbon-profond">
+                        Séance Magnétisme
+                    </button>
+                </div>
+            </div>
+
+            <!-- Onglet 1 : Avant le rendez-vous -->
+            <div id="content-avant" class="bg-blanc-creme rounded-3xl p-8 sm:p-10 border border-rose-poudre/50 shadow-soft transition-all duration-300">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-rose-poudre/60 flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-sparkle text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Regard parfaitement démaquillé</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Venez sans mascara, gel à sourcils ni corps gras autour des yeux. Des poils propres garantissent une adhérence optimale et une tenue durable.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-rose-poudre/60 flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-eye-closed text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Retirez vos lentilles</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Pensez à apporter votre boîtier afin de retirer vos lentilles de contact avant la prestation pour un confort oculaire total pendant la pose.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-rose-poudre/60 flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-prohibit text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Les conseils pour un Browlift réussi</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Évitez de faire une épilation des sourcils dans les 48 heures avant notre rendez-vous.
+                                Évitez d'appliquer des huiles, crèmes grasses ou produits maquillants sur vos sourcils afin de préparer au mieux la zone.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-rose-poudre/60 flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-coffee text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Limitez la caféine & détendez-vous</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Évitez le café 2h avant la séance pour éviter les micro-tremblements des paupières. Installez-vous confortablement : c'est votre pause bien-être !
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet 2 : Entretien des Cils -->
+            <div id="content-cils" class="hidden bg-blanc-creme rounded-3xl p-8 sm:p-10 border border-rose-poudre/50 shadow-soft transition-all duration-300">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-beige-nude flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-drop-slash text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">24h sans eau ni vapeur</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Ne mouillez pas vos cils et évitez sauna, hammam ou douche très chaude durant les 24 premières heures pour fixer la courbure ou la colle.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-beige-nude flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-bubbles text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Shampoing cils doux</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Nettoyez vos extensions tous les 2 jours avec une mousse nettoyante sans huile pour préserver la santé de vos cils naturels.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-beige-nude flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-magic-wand text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Brossage quotidien à sec</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Utilisez chaque matin le goupillon offert à l'institut en brossant délicatement des mi-longueurs vers les pointes sur cils secs.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-beige-nude flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-prohibit text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Zéro corps gras & mascara</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Bannissez les démaquillants biphasés, huiles végétales et mascaras waterproof sur vos extensions afin d'éviter qu'elles ne glissent.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet 3 : Entretien Brow Lifting -->
+            <div id="content-brow" class="hidden bg-blanc-creme rounded-3xl p-8 sm:p-10 border border-rose-poudre/50 shadow-soft transition-all duration-300">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-rose-poudre/60 flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-drop-slash text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">24h sans humidité ni frottement</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Gardez vos sourcils parfaitement secs pendant 24h (pas d'eau, de vapeur, de transpiration intense ni de maquillage) pour fixer le mouvement.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-rose-poudre/60 flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-arrow-up-right text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Brossage vers le haut chaque matin</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Après les 24h, brossez vos sourcils vers le haut et l'extérieur avec votre goupillon pour réactiver immédiatement l'effet lifté et structuré.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-rose-poudre/60 flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-drop text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Hydratation kératine ou huile nourrissante</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Appliquez chaque soir un soin à la kératine ou une goutte d'huile de ricin / jojoba pour garder les poils souples, brillants et en pleine santé.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-rose-poudre/60 flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-moon-stars text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Protégez-les durant la nuit</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Les premières nuits, essayez de ne pas dormir le visage écrasé dans l'oreiller afin de ne pas plier les poils fraîchement restructurés.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet 4 : Séance Magnétisme -->
+            <div id="content-magnetisme" class="hidden bg-blanc-creme rounded-3xl p-8 sm:p-10 border border-rose-poudre/50 shadow-soft transition-all duration-300">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-beige-nude flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-hand-heart text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Tenue confortable & lâcher-prise</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Venez dans une tenue souple et agréable. Installez-vous simplement et laissez de côté les contraintes du quotidien pour profiter pleinement de ce temps pour vous.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-beige-nude flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-drop text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Hydratation après la séance</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Buvez de l'eau régulièrement dans les heures et les jours qui suivent afin d'accompagner naturellement l'apaisement et le rééquilibrage énergétique.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-beige-nude flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-sun-horizon text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Préserver un moment de calme</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Dans la mesure du possible, évitez les efforts physiques intenses ou les journées trop chargées juste après votre séance pour garder cette sensation de sérénité.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-2xl bg-beige-nude flex items-center justify-center text-dore-champagne shrink-0 mt-1">
+                            <i class="ph ph-sparkle text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl font-semibold text-charbon-profond">Écouter ses ressentis à son rythme</h4>
+                            <p class="text-sm text-taupe-doux mt-1 leading-relaxed font-light">
+                                Apaisement, sommeil plus profond ou légère fatigue : chaque personne réagit différemment, laissez votre corps intégrer les effets en douceur.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================
+         BANNIÈRE APPEL À L'ACTION (CTA)
+         ========================================== -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto bg-gradient-to-r from-beige-nude via-rose-poudre/60 to-beige-nude rounded-3xl p-8 sm:p-14 text-center border border-rose-poudre/70 shadow-soft relative overflow-hidden">
+            <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+                <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-charbon-profond">
+                    Révélez l'éclat de votre regard et apaisez votre énergie
+                </h2>
+                <p class="text-taupe-doux text-sm sm:text-base font-light">
+                    Offrez-vous une parenthèse sur mesure chez <strong class="font-medium text-charbon-profond">DL Éclat et Énergie</strong> : extensions de cils, brow lifting ou séance de magnétisme, avec un accompagnement attentif et votre goupillon offert pour les soins du regard.
+                </p>
+                <div class="pt-2">
+                    <button type="button" onclick="openBookingModal()" class="bg-charbon-profond hover:bg-charbon-profond/90 text-white px-8 py-4 rounded-full text-sm font-medium transition-all duration-300 shadow-md inline-flex items-center gap-2">
+                        <i class="ph ph-calendar-check text-lg text-dore-champagne"></i>
+                        <span>Réserver ma séance</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         7. PIED DE PAGE COMPLET (DL ÉCLAT ET ÉNERGIE)
+         ========================================== -->
+    <footer id="contact" class="bg-charbon-profond text-blanc-creme pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+                
+                <!-- Colonne 1 : Marque -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-8 h-8 rounded-full bg-dore-champagne/20 flex items-center justify-center text-dore-champagne font-serif font-bold text-xs border border-dore-champagne/40">
+                            DL
+                        </span>
+                        <span class="font-serif text-2xl font-semibold tracking-wide text-white">DL Éclat et Énergie</span>
+                    </div>
+                    <p class="text-sm text-white/70 font-light leading-relaxed">
+                        Technicienne de cils, spécialiste Brow Lifting et magnétisme. Un espace chaleureux dédié à la beauté du regard, à l'harmonie énergétique, à la douceur et au bien-être.
+                    </p>
+                    <!-- Réseaux Sociaux -->
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 hover:bg-dore-champagne text-white flex items-center justify-center transition-colors" aria-label="Instagram DL Éclat et Énergie">
+                            <i class="ph ph-instagram-logo text-xl"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 hover:bg-dore-champagne text-white flex items-center justify-center transition-colors" aria-label="TikTok DL Éclat et Énergie">
+                            <i class="ph ph-tiktok-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Colonne 2 : Coordonnées -->
+                <div class="space-y-4">
+                    <h4 class="font-serif text-xl font-medium text-dore-champagne">Coordonnées</h4>
+                    <ul class="space-y-3 text-sm text-white/80 font-light">
+                        <li class="flex items-start gap-3">
+                            <i class="ph ph-map-pin text-dore-champagne text-lg shrink-0 mt-0.5"></i>
+                            <span>10 Bis La Blanchetterie, 33820 Braud et saint Louis<br><span class="text-xs text-white/50">(Sur rendez-vous uniquement)</span></span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-phone text-dore-champagne text-lg shrink-0"></i>
+                            <a href="tel:+33760901425" class="hover:text-dore-champagne transition-colors">07 60 90 14 25</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph ph-envelope-simple text-dore-champagne text-lg shrink-0"></i>
+                            <a href="mailto:dl.beaute.energie@gmail.com" class="hover:text-dore-champagne transition-colors">dl.beaute.energie@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 3 : Horaires -->
+                <div class="space-y-4">
+                    <h4 class="font-serif text-xl font-medium text-dore-champagne">Horaires d'ouverture</h4>
+                    <ul class="space-y-2 text-sm text-white/80 font-light">
+                        <li class="flex justify-between">
+                            <span>Lundi - Samedi</span>
+                            <span>09h00 - 17h00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Dimanche</span>
+                            <span class="text-white/50">Fermé</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Colonne 4 : Navigation rapide -->
+                <div class="space-y-4">
+                    <h4 class="font-serif text-xl font-medium text-dore-champagne">Navigation</h4>
+                    <ul class="space-y-2 text-sm text-white/80 font-light">
+                        <li><a href="#prestations" class="hover:text-dore-champagne transition-colors">Prestations Cils, Sourcils & Magnétisme</a></li>
+                        <li><a href="#galerie" class="hover:text-dore-champagne transition-colors">Galerie & Réalisations</a></li>
+                        <li><a href="#conseils" class="hover:text-dore-champagne transition-colors">Conseils & Entretien</a></li>
+                        <li><a href="#contact" class="hover:text-dore-champagne transition-colors">Contact</a></li>
+                        <li>
+                            <button type="button" onclick="openBookingModal()" class="text-dore-champagne hover:underline font-normal mt-1">
+                                Prendre Rendez-vous →
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-white/50 gap-4">
+                <p>© 2026 DL Éclat et Énergie — Tous droits réservés.</p>
+                <p>Technicienne de Cils, Brow Lifting & Magnétisme • Hygiène & Douceur</p>
+            </div>
+        </div>
+    </footer>
+
+<!-- ==========================================
+         MODALE INTERACTIVE DE PRISE DE RENDEZ-VOUS
+         ========================================== -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-charbon-profond/60 backdrop-blur-sm transition-opacity">
+        <div class="bg-blanc-creme w-full max-w-lg rounded-3xl shadow-2xl border border-rose-poudre/70 overflow-hidden relative">
+            
+            <!-- En-tête de la modale -->
+            <div class="bg-beige-nude px-6 py-5 border-b border-rose-poudre/50 flex justify-between items-center">
+                <div>
+                    <span class="text-[10px] uppercase tracking-widest text-dore-champagne font-semibold">DL Éclat et Énergie</span>
+                    <h3 class="font-serif text-2xl font-semibold text-charbon-profond">Prendre Rendez-vous</h3>
+                </div>
+                <button type="button" onclick="closeBookingModal()" class="w-9 h-9 rounded-full bg-white/80 hover:bg-white text-charbon-profond flex items-center justify-center transition-colors" aria-label="Fermer">
+                    <i class="ph ph-x text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Formulaire de réservation relié à dl.beaute.energie@gmail.com -->
+            <div id="booking-form-container" class="p-6 sm:p-8 max-h-[82vh] overflow-y-auto">
+                <form id="booking-form" action="https://formsubmit.co/ajax/dl.beaute.energie@gmail.com" method="POST" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                    <input type="hidden" name="_subject" value="Nouvelle demande de rendez-vous — DL Éclat et Énergie">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <p class="text-xs text-charbon-profond/80 bg-rose-poudre/25 px-4 py-2.5 rounded-2xl">
+                        Les demandes de rendez-vous sont transmises à <strong class="font-semibold">dl.beaute.energie@gmail.com</strong> et étudiées selon les disponibilités de l'agenda. Vous recevrez une confirmation rapide ou, si nécessaire, une proposition d'un autre créneau.
+                    </p>
+
+                    <div>
+                        <label for="service-select" class="block text-xs font-semibold uppercase tracking-wider text-charbon-profond mb-1.5">
+                            1. Prestation souhaitée *
+                        </label>
+                        <select id="service-select" name="Prestation" required class="w-full px-4 py-3 rounded-2xl bg-white border border-rose-poudre/80 text-sm text-charbon-profond focus:outline-none focus:border-dore-champagne">
+                            <optgroup label="Beauté des Cils">
+                                <option value="Pose Cil à Cil (50€)">Pose Cil à Cil — Naturel (50 € • 2h)</option>
+                                <option value="Pose Mixte (60€)" selected>Pose Mixte / Hybride (60 € • 2h15)</option>
+                                <option value="Volume Russe (65€)">Volume Russe (65 € • 2h30)</option>
+                                <option value="Dépose Délicate (20€)">Dépose Délicate (20 € • 30min)</option>
+                            </optgroup>
+                            <optgroup label="Remplissage à 2 semaines">
+                                <option value="Remplissage — Cil à Cil (25 €)">2 sem. — Cil à Cil (25 €)</option>
+                                <option value="Remplissage — Hybride (30 €)">2 sem. — Hybride (30 €)</option>
+                                <option value="Remplissage — Volume Russe (35 €)">2 sem. — Volume Russe (35 €)</option>
+                            </optgroup>
+                            <optgroup label="Remplissage à 3 semaines">
+                                <option value="Remplissage 3 semaines — Cil à Cil (30 €)">3 sem. — Cil à Cil (30 €)</option>
+                                <option value="Remplissage 3 semaines — Hybride (35 €)">3 sem. — Hybride (35 €)</option>
+                                <option value="Remplissage 3 semaines — Volume Russe (45 €)">3 sem. — Volume Russe (45 €)</option>
+                            </optgroup>
+                            <optgroup label="Remplissage à 4 semaines">
+                                <option value="Remplissage 4 semaines — Cil à Cil (40 €)">4 sem. — Cil à Cil (40 €)</option>
+                                <option value="Remplissage 4 semaines — Hybride (45 €)">4 sem. — Hybride (45 €)</option>
+                                <option value="Remplissage 4 semaines — Volume Russe (55 €)">4 sem. — Volume Russe (55 €)</option>
+                            </optgroup>
+                            <optgroup label="Sourcils & Brow Lifting">
+                                <option value="Brow Lift Naturel (50€)">Brow Lift Naturel (50 € • 45min)</option>
+                                <option value="Brow Lift avec Teinture (65€)">Brow Lift avec Teinture (65 € • 1h)</option>
+                            </optgroup>
+                            <optgroup label="Magnétisme">
+                                <option value="Magnétisme (20€)">Magnétisme (20 € • 1h à 2h)</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="booking-date" class="block text-xs font-semibold uppercase tracking-wider text-charbon-profond mb-1.5">
+                                2. Date souhaitée *
+                            </label>
+                            <input type="date" id="booking-date" name="Date souhaitée" required class="w-full px-4 py-3 rounded-2xl bg-white border border-rose-poudre/80 text-sm text-charbon-profond focus:outline-none focus:border-dore-champagne">
+                        </div>
+                        <div>
+                            <label for="booking-time" class="block text-xs font-semibold uppercase tracking-wider text-charbon-profond mb-1.5">
+                                3. Créneau souhaité *
+                            </label>
+                            <select id="booking-time" name="Créneau souhaité" required class="w-full px-4 py-3 rounded-2xl bg-white border border-rose-poudre/80 text-sm text-charbon-profond focus:outline-none focus:border-dore-champagne">
+                                <option value="09:00">09h00</option>
+                                <option value="10:00">10h00</option>
+                                <option value="11:00">11h00</option>
+                                <option value="14:00">14h00</option>
+                                <option value="16:00">16h00</option>
+                                <option value="17:00">17h00</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="client-name" class="block text-xs font-semibold uppercase tracking-wider text-charbon-profond mb-1.5">
+                            Prénom & Nom *
+                        </label>
+                        <input type="text" id="client-name" name="Nom complet" required placeholder="Ex: Chloé Laurent" class="w-full px-4 py-3 rounded-2xl bg-white border border-rose-poudre/80 text-sm text-charbon-profond focus:outline-none focus:border-dore-champagne">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="client-phone" class="block text-xs font-semibold uppercase tracking-wider text-charbon-profond mb-1.5">
+                                Téléphone *
+                            </label>
+                            <input type="tel" id="client-phone" name="Téléphone" required placeholder="06 00 00 00 00" class="w-full px-4 py-3 rounded-2xl bg-white border border-rose-poudre/80 text-sm text-charbon-profond focus:outline-none focus:border-dore-champagne">
+                        </div>
+                        <div>
+                            <label for="client-email" class="block text-xs font-semibold uppercase tracking-wider text-charbon-profond mb-1.5">
+                                Email *
+                            </label>
+                            <input type="email" id="client-email" name="Email" required placeholder="chloe@exemple.fr" class="w-full px-4 py-3 rounded-2xl bg-white border border-rose-poudre/80 text-sm text-charbon-profond focus:outline-none focus:border-dore-champagne">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="client-notes" class="block text-xs font-semibold uppercase tracking-wider text-charbon-profond mb-1.5">
+                            Message / Précisions (optionnel)
+                        </label>
+                        <textarea id="client-notes" name="Précisions" rows="2" placeholder="Allergie connue, première séance, question..." class="w-full px-4 py-2.5 rounded-2xl bg-white border border-rose-poudre/80 text-sm text-charbon-profond focus:outline-none focus:border-dore-champagne"></textarea>
+                    </div>
+
+                    <div id="booking-error" class="hidden text-xs text-red-700 bg-red-50 border border-red-200 px-4 py-3 rounded-2xl"></div>
+
+                    <button type="submit" id="booking-submit-btn" class="w-full bg-dore-champagne hover:bg-dore-hover text-white py-3.5 rounded-full text-sm font-medium transition-all duration-300 shadow-md flex items-center justify-center gap-2 mt-2">
+                        <i class="ph ph-check-circle text-lg"></i>
+                        <span>Envoyer ma demande de rendez-vous</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Écran de Confirmation Immédiate -->
+            <div id="booking-confirmation" class="hidden p-8 text-center space-y-5">
+                <div class="w-16 h-16 rounded-full bg-rose-poudre/70 text-dore-champagne flex items-center justify-center mx-auto text-3xl">
+                    <i class="ph-fill ph-check-circle"></i>
+                </div>
+                <h4 class="font-serif text-3xl font-semibold text-charbon-profond">Demande prête</h4>
+                <p id="booking-confirmation-text" class="text-sm text-taupe-doux leading-relaxed">
+                    Merci <span id="confirm-name" class="font-semibold text-charbon-profond"></span>, votre demande chez <strong class="text-charbon-profond">DL Éclat et Énergie</strong> a bien été préparée pour <strong class="text-charbon-profond">dl.beaute.energie@gmail.com</strong>.
+                </p>
+                
+                <!-- Récapitulatif -->
+                <div class="bg-beige-nude/80 rounded-2xl p-4 text-left text-xs space-y-2 border border-rose-poudre/60">
+                    <div class="flex justify-between gap-2">
+                        <span class="text-taupe-doux shrink-0">Prestation :</span>
+                        <span id="confirm-service" class="font-medium text-charbon-profond text-right"></span>
+                    </div>
+                    <div class="flex justify-between gap-2">
+                        <span class="text-taupe-doux shrink-0">Date & Heure :</span>
+                        <span id="confirm-datetime" class="font-medium text-charbon-profond text-right"></span>
+                    </div>
+                    <div class="flex justify-between gap-2">
+                        <span class="text-taupe-doux shrink-0">Contact :</span>
+                        <span id="confirm-contact" class="font-medium text-charbon-profond text-right"></span>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <button type="button" onclick="resetAndCloseModal()" class="px-8 py-3 rounded-full bg-charbon-profond text-white text-xs font-medium hover:bg-charbon-profond/90 transition-colors">
+                        Fermer et revenir au site
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ==========================================
+         SCRIPTS D'INTERACTIVITÉ
+         ========================================== -->
+    <script>
+        // 1. Gestion du Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // 2. Filtrage des Prestations
+        function filterServices(cat) {
+            const target = (cat || 'all').toLowerCase().trim();
+            const cards = document.querySelectorAll('.service-card');
+            const buttons = document.querySelectorAll('.service-tab-btn');
+
+            buttons.forEach(btn => {
+                const onclickText = (btn.getAttribute('onclick') || '').toLowerCase();
+                const isActive = onclickText.includes(`'${target}'`);
+                btn.classList.toggle('bg-charbon-profond', isActive);
+                btn.classList.toggle('text-white', isActive);
+                btn.classList.toggle('shadow-sm', isActive);
+                btn.classList.toggle('bg-white', !isActive);
+                btn.classList.toggle('text-taupe-doux', !isActive);
+                btn.classList.toggle('border', !isActive);
+                btn.classList.toggle('border-rose-poudre/60', !isActive);
+            });
+
+            cards.forEach(card => {
+                const cardCat = (card.getAttribute('data-service-cat') || '').toLowerCase().trim();
+                card.style.display = (target === 'all' || cardCat === target) ? 'flex' : 'none';
+            });
+        }
+
+        // 3. Gestion des Onglets "Préparation & Entretien"
+        function switchCareTab(tabName) {
+            const tabs = ['avant', 'cils', 'brow', 'magnetisme'];
+            
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                const content = document.getElementById(`content-${t}`);
+                const isSelected = t === tabName;
+                
+                if (btn) {
+                    btn.classList.toggle('bg-charbon-profond', isSelected);
+                    btn.classList.toggle('text-white', isSelected);
+                    btn.classList.toggle('shadow-sm', isSelected);
+                    btn.classList.toggle('text-taupe-doux', !isSelected);
+                    btn.classList.toggle('hover:text-charbon-profond', !isSelected);
+                }
+                if (content) {
+                    content.classList.toggle('hidden', !isSelected);
+                }
+            });
+        }
+
+        // 4. Filtrage de la Galerie
+        function filterGallery(category) {
+            const target = (category || 'all').toLowerCase().trim();
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                const onclickText = (btn.getAttribute('onclick') || '').toLowerCase();
+                const isActive = onclickText.includes(`'${target}'`);
+                btn.classList.toggle('bg-charbon-profond', isActive);
+                btn.classList.toggle('text-white', isActive);
+                btn.classList.toggle('bg-white', !isActive);
+                btn.classList.toggle('text-taupe-doux', !isActive);
+                btn.classList.toggle('border', !isActive);
+                btn.classList.toggle('border-rose-poudre/60', !isActive);
+            });
+
+            items.forEach(item => {
+                const itemCat = (item.getAttribute('data-category') || '').toLowerCase().trim();
+                item.style.display = (target === 'all' || itemCat === target) ? 'block' : 'none';
+            });
+        }
+
+        // 5. Gestion de la Modale de Prise de Rendez-vous
+        const bookingModal = document.getElementById('booking-modal');
+        const serviceSelect = document.getElementById('service-select');
+        const dateInput = document.getElementById('booking-date');
+        const bookingError = document.getElementById('booking-error');
+        const bookingSubmitBtn = document.getElementById('booking-submit-btn');
+
+        const today = new Date().toISOString().split('T')[0];
+        if (dateInput) {
+            dateInput.setAttribute('min', today);
+            dateInput.value = today;
+        }
+
+        function openBookingModal(preselectedService = null) {
+            if (!bookingModal) return;
+
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+
+            if (preselectedService && serviceSelect) {
+                for (let i = 0; i < serviceSelect.options.length; i++) {
+                    if (serviceSelect.options[i].value === preselectedService) {
+                        serviceSelect.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+
+            if (bookingError) {
+                bookingError.classList.add('hidden');
+                bookingError.textContent = '';
+            }
+
+            const formContainer = document.getElementById('booking-form-container');
+            const confirmationBox = document.getElementById('booking-confirmation');
+            if (formContainer) formContainer.classList.remove('hidden');
+            if (confirmationBox) confirmationBox.classList.add('hidden');
+
+            bookingModal.classList.remove('hidden');
+            bookingModal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            if (!bookingModal) return;
+            bookingModal.classList.add('hidden');
+            bookingModal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        function resetAndCloseModal() {
+            const formEl = document.getElementById('booking-form');
+            if (formEl) formEl.reset();
+            if (dateInput) {
+                dateInput.value = today;
+            }
+            if (bookingError) {
+                bookingError.classList.add('hidden');
+                bookingError.textContent = '';
+            }
+            closeBookingModal();
+        }
+
+        if (bookingModal) {
+            bookingModal.addEventListener('click', (e) => {
+                if (e.target === bookingModal) {
+                    closeBookingModal();
+                }
+            });
+        }
+
+        function buildEmailMessage(payload) {
+            const subject = `Demande de rendez-vous — ${payload.service} (${payload.name})`;
+            const body =
+                `Bonjour DL Éclat et Énergie,\n\n` +
+                `Nouvelle demande de rendez-vous :\n` +
+                `- Prestation : ${payload.service}\n` +
+                `- Date souhaitée : ${payload.formattedDate}\n` +
+                `- Créneau souhaité : ${payload.time}\n` +
+                `- Nom : ${payload.name}\n` +
+                `- Téléphone : ${payload.phone}\n` +
+                `- Email : ${payload.email}\n` +
+                `- Précisions : ${payload.notes || 'Aucune'}`;
+
+            return {
+                gmailUrl: `https://mail.google.com/mail/?view=cm&fs=1&to=dl.beaute.energie@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
+                mailtoUrl: `mailto:dl.beaute.energie@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+            };
+        }
+
+        async function handleBookingSubmit(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const service = serviceSelect ? serviceSelect.value : '';
+            const rawDate = dateInput ? dateInput.value : '';
+            const timeEl = document.getElementById('booking-time');
+            const nameEl = document.getElementById('client-name');
+            const phoneEl = document.getElementById('client-phone');
+            const emailEl = document.getElementById('client-email');
+            const notesEl = document.getElementById('client-notes');
+
+            const time = timeEl ? timeEl.value : '';
+            const name = nameEl ? nameEl.value.trim() : '';
+            const phone = phoneEl ? phoneEl.value.trim() : '';
+            const email = emailEl ? emailEl.value.trim() : '';
+            const notes = notesEl ? notesEl.value.trim() : '';
+
+            let formattedDate = rawDate;
+            if (rawDate && rawDate.includes('-')) {
+                const dateParts = rawDate.split('-');
+                formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
+            }
+
+            if (bookingError) {
+                bookingError.classList.add('hidden');
+                bookingError.textContent = '';
+            }
+
+            const originalBtnHtml = bookingSubmitBtn ? bookingSubmitBtn.innerHTML : '';
+            if (bookingSubmitBtn) {
+                bookingSubmitBtn.disabled = true;
+                bookingSubmitBtn.innerHTML = '<i class="ph ph-spinner animate-spin text-lg"></i><span>Envoi en cours...</span>';
+            }
+
+            const formData = new FormData(form);
+            if (email) {
+                formData.set('_replyto', email);
+            }
+
+            let sentViaAjax = false;
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+                const response = await fetch('https://formsubmit.co/ajax/dl.beaute.energie@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json'
+                    },
+                    body: formData,
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
+                if (response.ok) {
+                    const result = await response.json();
+                    sentViaAjax = result.success === 'true' || result.success === true;
+                }
+            } catch (err) {
+                sentViaAjax = false;
+            }
+
+            if (bookingSubmitBtn) {
+                bookingSubmitBtn.disabled = false;
+                bookingSubmitBtn.innerHTML = originalBtnHtml;
+            }
+
+            const confirmName = document.getElementById('confirm-name');
+            const confirmService = document.getElementById('confirm-service');
+            const confirmDatetime = document.getElementById('confirm-datetime');
+            const confirmContact = document.getElementById('confirm-contact');
+            const confirmText = document.getElementById('booking-confirmation-text');
+
+            if (confirmName) confirmName.textContent = name;
+            if (confirmService) confirmService.textContent = service;
+            if (confirmDatetime) confirmDatetime.textContent = `Le ${formattedDate} à ${time}`;
+            if (confirmContact) confirmContact.textContent = `${phone} • ${email}`;
+
+            const { gmailUrl, mailtoUrl } = buildEmailMessage({
+                service,
+                formattedDate,
+                time,
+                name,
+                phone,
+                email,
+                notes
+            });
+
+            if (confirmText) {
+                if (sentViaAjax) {
+                    confirmText.innerHTML =
+                        `Merci <span class="font-semibold text-charbon-profond">${name}</span>, votre demande chez <strong class="text-charbon-profond">DL Éclat et Énergie</strong> a bien été envoyée à <strong class="text-charbon-profond">dl.beaute.energie@gmail.com</strong>. Lors du tout premier envoi, pensez à valider le lien d'activation reçu dans votre boîte mail.`;
+                } else {
+                    confirmText.innerHTML =
+                        `Merci <span class="font-semibold text-charbon-profond">${name}</span>, l'envoi automatique n'a pas abouti pour le moment. Vous pouvez envoyer la demande directement via <a href="${gmailUrl}" target="_blank" rel="noopener noreferrer" class="underline font-medium text-charbon-profond">Gmail</a> ou <a href="${mailtoUrl}" class="underline font-medium text-charbon-profond">votre messagerie</a> avec le message pré-rempli.`;
+                }
+            }
+
+            const formContainer = document.getElementById('booking-form-container');
+            const confirmationBox = document.getElementById('booking-confirmation');
+            if (formContainer) formContainer.classList.add('hidden');
+            if (confirmationBox) confirmationBox.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
