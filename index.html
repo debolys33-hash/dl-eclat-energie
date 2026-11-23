@@ -611,6 +611,14 @@
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         onerror="this.src='https://placehold.co/600x600/F5ECE6/2B2624?text=Brow+Lift+Fluffy'"
                     >
+                    
+                    <!-- Bandeau blanc -->
+                    <div class="absolute top-5 left-0 right-0 bg-white/95 backdrop-blur-sm py-2.5 px-4 text-center shadow-sm z-10 border-y border-dore-champagne/20">
+                        <span class="text-xs font-semibold uppercase tracking-[0.15em] text-charbon-profond">
+                            Bientôt disponible
+                        </span>
+                    </div>
+                    
                     <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/85 via-charbon-profond/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
                         <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Brow Lifting</span>
                         <h4 class="font-serif text-xl font-medium">Brow Lift Naturel</h4>
@@ -644,30 +652,43 @@
         </div>
     </section>
 
-    <!-- ==========================================
-         5. VOS RÉSULTATS EN SALON (PHOTOS CLIENTES)
+  <!-- ==========================================
+         5. VOS RÉSULTATS EN SALON (CARROUSEL PHOTOS CLIENTES)
          ========================================== -->
     <section id="resultats-clientes" class="py-20 bg-blanc-creme/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-dore-champagne">Avant / Après & Résultats</span>
-                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charbon-profond mt-2">
-                    Vos Résultats en Salon
-                </h2>
-                <p class="text-sm text-taupe-doux mt-3 font-light">
-                    Découvrez les réalisations effectuées sur mes clientes en institut.
-                </p>
+            <!-- En-tête + Flèches de navigation -->
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-6">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-dore-champagne">Avant / Après & Résultats</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charbon-profond mt-2">
+                        Vos Résultats en Salon
+                    </h2>
+                    <p class="text-sm text-taupe-doux mt-3 font-light">
+                        Faites défiler pour découvrir les réalisations effectuées sur mes clientes en institut.
+                    </p>
+                </div>
+
+                <!-- Boutons flèches gauche / droite -->
+                <div class="flex items-center gap-3 self-start sm:self-end">
+                    <button type="button" onclick="scrollClientes(-1)" aria-label="Photo précédente" class="w-11 h-11 rounded-full bg-white border border-rose-poudre/60 text-charbon-profond hover:bg-charbon-profond hover:text-white transition-colors shadow-sm flex items-center justify-center">
+                        <i class="ph ph-arrow-left text-lg"></i>
+                    </button>
+                    <button type="button" onclick="scrollClientes(1)" aria-label="Photo suivante" class="w-11 h-11 rounded-full bg-white border border-rose-poudre/60 text-charbon-profond hover:bg-charbon-profond hover:text-white transition-colors shadow-sm flex items-center justify-center">
+                        <i class="ph ph-arrow-right text-lg"></i>
+                    </button>
+                </div>
             </div>
 
-            <!-- Grille de photos clientes -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Carrousel défilant horizontalement -->
+            <div id="clientes-carousel" class="flex gap-6 overflow-x-auto scroll-smooth pb-4" style="scrollbar-width: none; -ms-overflow-style: none;">
                 
                 <!-- Photo cliente 1 -->
-                <div class="group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card">
+                <div class="flex-none w-[280px] sm:w-[340px] group relative overflow-hidden rounded-3xl bg-beige-nude aspect-square shadow-card">
                     <img 
                         src="cilacil.jpg" 
-                        alt="Réalisation sur cliente" 
+                        alt="Réalisation sur cliente 1" 
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     >
                     <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
@@ -677,57 +698,68 @@
                 </div>
 
                 <!-- Photo cliente 2 -->
-                <div class="group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card">
+                <div class="flex-none w-[280px] sm:w-[340px] group relative overflow-hidden rounded-3xl bg-beige-nude aspect-square shadow-card">
                     <img 
-                        src="cilacil2.jpg" 
-                        alt="Réalisation sur cliente" 
+                        src="hybride.jpg" 
+                        alt="Réalisation sur cliente 2" 
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     >
                     <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                        <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Extensions de Cils1</span>
-                        <h4 class="font-serif text-lg font-medium">Pose Cil à Cil</h4>
+                        <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Extensions de Cils</span>
+                        <h4 class="font-serif text-lg font-medium">Pose Hybride</h4>
                     </div>
                 </div>
 
                 <!-- Photo cliente 3 -->
-                <div class="group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card">
+                <div class="flex-none w-[280px] sm:w-[340px] group relative overflow-hidden rounded-3xl bg-beige-nude aspect-square shadow-card">
                     <img 
-                        src="hybride.jpg" 
-                        alt="Réalisation sur cliente" 
+                        src="russe2.jpg" 
+                        alt="Réalisation sur cliente 3" 
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     >
                     <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
                         <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Extensions de Cils</span>
-                        <h4 class="font-serif text-lg font-medium">Pose hybride</h4>
+                        <h4 class="font-serif text-lg font-medium">Volume Russe</h4>
                     </div>
                 </div>
-            </div>
 
-               <!-- Photo cliente 4 -->
-                <div class="group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card">
+                <!-- Photo cliente 4 -->
+                <div class="flex-none w-[280px] sm:w-[340px] group relative overflow-hidden rounded-3xl bg-beige-nude aspect-square shadow-card">
                     <img 
-                        src="russe2.jpg" 
-                        alt="Réalisation sur cliente" 
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        src="cilacil2.jpg" 
+                        alt="Réalisation sur cliente 4" 
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    >
                     <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
                         <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Extensions de Cils</span>
-                        <h4 class="font-serif text-lg font-medium">Pose Russe</h4>
-                    </div>
-                </div>
-            </div>
-
-        <!-- Photo cliente 5 -->
-                <div class="group relative overflow-hidden rounded-3xl bg-beige-nude aspect-[4/4] shadow-card">
-                    <img 
-                        src="cilacil3.jpg" 
-                        alt="Réalisation sur cliente" 
-                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
-                        <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Extensions de Cils1</span>
                         <h4 class="font-serif text-lg font-medium">Pose Cil à Cil</h4>
                     </div>
-             </div>
+                </div>
+
+                <!-- Photo cliente 5 -->
+                <div class="flex-none w-[280px] sm:w-[340px] group relative overflow-hidden rounded-3xl bg-beige-nude aspect-square shadow-card">
+                    <img 
+                        src="cilacil3.jpg" 
+                        alt="Réalisation sur cliente 5" 
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    >
+                    <div class="absolute inset-0 bg-gradient-to-t from-charbon-profond/80 via-transparent to-transparent flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-rose-poudre">Extensions de Cils</span>
+                        <h4 class="font-serif text-lg font-medium">Pose Cil à Cil</h4>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+        <script>
+            function scrollClientes(direction) {
+                const carousel = document.getElementById('clientes-carousel');
+                if (carousel) {
+                    carousel.scrollBy({ left: direction * 364, behavior: 'smooth' });
+                }
+            }
+        </script>
     </section>
     <!-- ==========================================
          5. PRÉPARATION & ENTRETIEN (4 ONGLETS INTERACTIFS)
