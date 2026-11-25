@@ -761,6 +761,76 @@
             }
         </script>
     </section>
+    <script>
+            function scrollClientes(direction) {
+                const carousel = document.getElementById('clientes-carousel');
+                if (carousel) {
+                    carousel.scrollBy({ left: direction * 364, behavior: 'smooth' });
+                }
+            }
+   </script>
+    </section>
+
+    <!-- ==========================================
+         6. AVIS CLIENTES & RETOURS D'EXPÉRIENCE
+         ========================================== -->
+    <section id="avis" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-[0.2em] text-dore-champagne">Témoignages</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold text-charbon-profond mt-2">
+                        Ce Que Disent Mes Clientes
+                    </h2>
+                    <p class="text-sm text-taupe-doux mt-3 font-light">
+                        Retrouvez les retours après vos séances beauté du regard et soins énergétiques.
+                    </p>
+                </div>
+
+                <a 
+                    href="https://g.page/r/CaCC0bXB0t77EBM/review" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-charbon-profond text-white text-xs font-medium tracking-wide hover:bg-dore-champagne transition-colors self-start md:self-auto"
+                >
+                    Voir ou laisser un avis Google
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Avis 1 (remplace par ton 1er vrai avis Google) -->
+                <div class="rounded-3xl bg-blanc-creme/70 border border-rose-poudre/50 p-6 shadow-card flex flex-col justify-between">
+                    <div>
+                        <div class="text-dore-champagne text-sm tracking-widest mb-3">★★★★★</div>
+                        <p class="text-sm text-charbon-profond/90 leading-relaxed font-light">
+                            « Accueil très doux et résultat super naturel. Mes cils tiennent parfaitement et le moment passé en cabine est très apaisant. »
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-rose-poudre/40">
+                        <p class="font-serif text-base font-medium text-charbon-profond">Camille R.</p>
+                        <p class="text-xs text-taupe-doux">Pose Cil à Cil</p>
+                    </div>
+                </div>
+
+                <!-- Avis 2 (remplace par ton 2e vrai avis Google) -->
+                <div class="rounded-3xl bg-blanc-creme/70 border border-rose-poudre/50 p-6 shadow-card flex flex-col justify-between">
+                    <div>
+                        <div class="text-dore-champagne text-sm tracking-widest mb-3">★★★★★</div>
+                        <p class="text-sm text-charbon-profond/90 leading-relaxed font-light">
+                            « Mon brow lift est exactement comme je le voulais : restructuré mais souple, le regard est tout de suite plus lumineux. »
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-rose-poudre/40">
+                        <p class="font-serif text-base font-medium text-charbon-profond">Élodie M.</p>
+                        <p class="text-xs text-taupe-doux">Brow Lift & Teinture</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
     <!-- ==========================================
          5. PRÉPARATION & ENTRETIEN (4 ONGLETS INTERACTIFS)
          ========================================== -->
